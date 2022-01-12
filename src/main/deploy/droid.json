@@ -1,0 +1,566 @@
+{
+    "system": {
+        "messages": {
+            "actions" : true,
+            "tankdrive": true,
+            "turret": false,
+            "shooter": false,
+            "droid": false,
+            "alarms": false,
+            "gamepiecemanipulator": false,
+            "conveyor": false,
+            "intake": false,
+            "droid-limelight": false,
+            "targettracker": false,
+            "droidoi": false,
+            "blinky": false,
+            "pathmanager": false,
+            "xerorobot": false,
+            "fireaction": false,
+            "conveyor_model": false,
+            "conveyor_ball_model": false,
+            "pathfollowing": false,
+            "climber": false
+        },
+        "verbose" : {
+            "tankdrive" : false,
+            "turret" : false,
+            "shooter" : false,
+            "droid" : false,
+            "alarms" : false,
+            "gamepiecemanipulator" : false,
+            "conveyor" : true,
+            "intake" : false,
+            "droid-limelight" : false,
+            "targettracker" : false,
+            "droidoi" : false,
+            "blinky" : false,
+            "climber" : false,
+            "lifter" : false
+        },
+        "plotting": true
+    },
+    "subsystems" : {
+        "tankdrive" : {
+            "hw" : {
+                "gyro" : "navx",
+                "left" : {
+                    "motors" : {
+                        "1" : {
+                            "type" : "talon_fx",
+                            "canid" : 1
+                        },
+                        "2" : {
+                            "type" : "talon_fx",
+                            "canid" : 2
+                        }                        
+                    }
+                },
+                "right" : {
+                    "motors" : {
+                        "1" : {
+                            "type" : "talon_fx",
+                            "canid" : 3
+                        },
+                        "2" : {
+                            "type" : "talon_fx",
+                            "canid" : 4
+                        }                        
+                    },
+                    "invert" : true
+                }
+            },
+            "width" : 30,
+            "scrub" : 1.0,
+            "inches_per_tick" : 0.006,
+            "speedometer" : {
+                "linearsamples" : 2,
+                "angluarsamples" : 2
+            },
+            "follower" : {
+                "left" : {
+                    "ka" : 0.0003,
+                    "kv" : 0.006,
+                    "kp" : 0.035,
+                    "kd" : 0.0
+                },
+                "right" : {
+                    "ka" : 0.0003,
+                    "kv" : 0.006,
+                    "kp" : 0.035,
+                    "kd" : 0.0
+                }
+            },
+            "angle_correction" : {
+                "kp" : 0.03,
+                "ki" : 0.0,
+                "kd" : 0.0,
+                "kf" : 0,
+                "max" : 1.0,
+                "min" : -1.0,
+                "imax" : 0.0
+            }
+        },
+        "lifter" : {
+            "hw" : {
+                "motors" : {
+                    "1" : {
+                        "type" : "sparkmax_brushless",
+                        "canid" : 13
+                    },
+                    "2" : {
+                        "type" : "sparkmax_brushless",
+                        "canid" : 14
+                    }
+                },
+                "encoder" : { 
+                    "type" : "motor",
+                    "m" : 1.0,
+                    "b" : 0.0
+                }
+            },
+            "climb_height" : 11700,
+            "max_height" : 11868,
+            "low_power_limit" : 0.1,
+            "low_power_height" : 100,
+            "calibrate" : {
+                "samples" : 6,
+                "down_power" : -0.1,
+                "threshold" : 1
+            },
+            "stay" : {
+                "kp" : 0.0002,
+                "ki" : 0,
+                "kd" : 0,
+                "kf" : 0,
+                "min" : -0.1,
+                "max" : 0.0,
+                "imax" : 0
+            },
+            "goto" : {
+                "threshold" : 3.0,
+                "maxa" : 3700,
+                "maxd" : -3700,
+                "maxv" : 3700
+            },
+            "follower" : {
+                "up" : {
+                    "kp" : 0.00001,
+                    "ka" : 0.0,
+                    "ki" : 0.0,
+                    "kd" : 0.0,
+                    "kv" : 0.00026455
+                },
+                "down" : {
+                    "kp" : 0.0,
+                    "ka" : 0.0,
+                    "ki" : 0.0,
+                    "kd" : 0.0,
+                    "kv" : 0.000268673
+                }
+            },
+            "hold" : {
+                "kp" : 0.0002,
+                "ki" : 0,
+                "kd" : 0,
+                "kf" : 0,
+                "min" : 0.0,
+                "max" : 0.0,
+                "imax" : 0                    
+            }            
+        },
+        "climber" : {
+            "hw" : {
+                "traverser" : {
+                    "pwmid": 2
+                }
+            },
+            "force_field_mode" : true,
+            "climb_height" : 11700,
+            "max_height" : 11868,
+            "power" : {
+                "up" : 0.8,
+                "down" : -1.0,
+                "left" : -1.0,
+                "right" : 1.0
+            }
+         
+        },
+        "conveyor" : {
+            "hw" :{
+                "sensors" : {
+                    "a" : {
+                        "COMPETITION" : 10,
+                        "PRACTICE" : 10
+                    },
+                    "b" : {
+                        "COMPETITION" : 13,
+                        "PRACTICE" : 12
+                    },
+                    "c" : {
+                        "COMPETITION" : 11,
+                        "PRACTICE" : 11
+                    },
+                    "d" : { 
+                        "COMPETITION" : 12,
+                        "PRACTICE" : 13
+                    }
+                },
+                "motors" : {
+                    "intake" : {
+                        "type" : "sparkmax_brushless",
+                        "canid" : 7,
+                        "neutral_mode" : "brake"
+                    },
+                    "shooter" : {
+                        "type" : "sparkmax_brushless",
+                        "canid" : 8,
+                        "neutral_mode" : "brake"
+                    }
+                }
+            },
+            "receive" : {
+                "timeout" : 0.5,
+                "intake_side_power" : 1.0,
+                "shooter_side_power" : 1.0
+            },
+            "emit" : {
+                "intake_side_power" : 1.0,
+                "shooter_side_power" : 1.0
+            },
+            "eject" : {
+                "intake_side_power" : -1.0,
+                "shooter_side_power" : -1.0                
+            },
+            "prepare_receive" : {
+                "to_intake" : {
+                    "intake_side_power" : -1.0,
+                    "shooter_side_power" : -1.0,
+                    "timeout" : 0.8
+                },
+                "to_shooter" : {
+                    "intake_side_power" : 1.0,
+                    "shooter_side_power" : 1.0
+                }
+            },
+            "prepare_emit" : {
+                "intake_side_power" : 1.0,
+                "shooter_side_power" : 1.0                
+            }
+        },
+        "shooter" : {
+            "hw" : {
+                "motors" : {
+                    "1" : {
+                        "type" : "sparkmax_brushless",
+                        "canid" : 5
+                    },
+                    "2" : {
+                        "type" : "sparkmax_brushless",
+                        "canid" : 6
+                    },
+                    "neutral_mode" : "coast"
+                },
+                "encoder" : { 
+                    "type" : "motor",
+                    "m" : 1.94714,
+                    "b" : 0.0
+                },
+                "hood" : {
+                    "servo" : 3
+                }
+            },
+            "hood" : {
+                "change_time" : 1.0,
+                "down_speed" : 1.0,
+                "up": { 
+                    "COMPETITION" : 0.1,
+                    "PRACTICE" : -0.4
+                },
+                "down" : {
+                    "COMPETITION" : 0.825,
+                    "PRACTICE" : 0.32
+                }
+            },
+            "shooter-action" : {
+                "kp" : 0.00001,
+                "ki" : 0.0,
+                "kd" : 0.0,
+                "kf" : 0.000130642,
+                "maxmagnitude" : 1.0,
+                "imax" : 0.0,
+                "max" : 1.0,
+                "min" : -1.0,
+                "ready_margin_percent" : 5.0
+            }
+
+        },
+        "intake" : {
+            "hw" : {
+                "motors" : {
+                    "type" : "sparkmax_brushless",
+                    "canid" : 11
+                },
+                "encoder" : {
+                    "type" : "motor",
+                    "m" : 1.0,
+                    "b" : 0.0
+                },
+                "collector" : {
+                    "motor" : {
+                        "type" : "sparkmax_brushless",
+                        "canid" : 10
+                    }
+                }
+            },
+            "hold" : {
+                "kp" : 0.001,
+                "ki" : 0,
+                "kd" : 0,
+                "kf" : 0,
+                "min" : -0.1,
+                "max" : 0.1,
+                "imax" : 0
+            },
+            "goto" : {
+                "threshold" : 10,
+                "maxd" : -14000,
+                "maxa" : 14000,
+                "maxv" : 14000
+            },
+            "collect" : {
+                "onpos" : 1400,
+                "offpos" : 0
+            },
+            "collector" : {
+                "forpower" : 1.0,
+                "revpower" : -1.0
+            },
+            "follower" : {
+                "up" : {
+                    "kp" : 0.0005,
+                    "ka" : 0.0,
+                    "ki" : 0.0,
+                    "kd" : 0.0,
+                    "kv" : 0.00012407
+                },
+                "down" : {
+                    "kp" : 0.001,
+                    "ka" : 0.0,
+                    "ki" : 0.0,
+                    "kd" : 0.0,
+                    "kv" : 0.000035
+                }
+            }
+        },
+        "turret" : {
+            "hw" : {
+                "motors" : {
+                    "type" : "sparkmax_brushless",
+                    "canid" : 9,
+                    "inverted" : true                    
+                },
+                "encoder" : {
+                    "type" : "analog",
+                    "ainput" : 1,
+                    "rmin" : -180.0,
+                    "rmax" : 180.0,
+                    "emin" : 5.0,
+                    "emax" : 0.0,
+                    "ec" : {
+                        "COMPETITION" : 1.44653,
+                        "PRACTICE" : 0.62133
+                    },
+                    "rc" : 0.0
+                }
+            },
+            "goto" :{
+                "threshold" : 1.5,
+                "maxa" : 250,
+                "maxd" : -250, 
+                "maxv" : 250
+            },
+            "follower" : {
+                "up" : {
+                    "kp" : 0.0,
+                    "ka" : 0.0,
+                    "ki" : 0.0,
+                    "kd" : 0.0,
+                    "kv" : 0.003521127
+                },
+                "down" : {
+                    "kp" : 0.0,
+                    "ka" : 0.0,
+                    "ki" : 0.0,
+                    "kd" : 0.0,
+                    "kv" : 0.003521127
+                }
+            },
+            "follow": {
+                "kp" : 0.014084508,
+                "ki" : 0,
+                "kd" : 0,
+                "kf" : 0,
+                "min" : -1,
+                "max" : 1,
+                "imax" : 0.0   
+            },
+            "hold" : {
+                "kp" : 0.001,
+                "ki" : 0,
+                "kd" : 0,
+                "kf" : 0,
+                "min" : -0.3,
+                "max" : 0.3,
+                "imax" : 0.0                    
+            } ,
+            "min" : -100,
+            "max" : 100,
+            "fire_threshold" : 5.0
+        },
+        "droid-limelight" : {
+            "timeout" : 8.0,
+            "camera_latency" : 0.011,
+            "network_latency" : 0.010,
+            "camera_angle" : 20.08,
+            "camera_height" : 21.5,
+            "target_height" : 88.0
+        },
+        "targettracker" : {
+            "camera_offset_angle" : -1.5,
+            "lost_count" : 10
+        },
+        "droidoi" : {
+            "xero1425_gamepad" : {
+                "index" : 0,
+                "power" : {
+                    "max" : 1.0,
+                    "default" : 0.6,
+                    "nudge_straight" : 0.2,
+                    "nudge_rotate" : 0.2,
+                    "slowby" : 0.5,
+                    "tolerance" : 0.05
+                },
+                "turn" : {
+                    "max" : 0.8,
+                    "default" : 0.4
+                },
+
+                "zerolevel" : 0.1,
+                "nudge_time" : 0.1
+            },
+            "oi" : {
+                "index" : 2,
+                "gadgets" : {
+                    "automode" : 0,
+                    "shoot_collect_mode" : 11,
+                    "eject" : 8,
+                    "collect_onoff" : 14, 
+                    "climb_lock": 10,
+                    "climb_deploy": 5,
+                    "climb_secure": 8,
+                    "climb_up": 1,
+                    "climb_down": 2,
+                    "traverse_left": 3,
+                    "traverse_right": 4,
+                    "manual_shoot_mode": 9,
+                    "manual_shoot_fire": 7
+                }
+            }
+        },
+        "gamepiecemanipulator" : {
+            "fire" : {
+                "max_drivebase_velocity" : 1,
+                "max_camera_sample_age" : 5.0                
+            },
+            "event" : 3,
+            "power_port_power" : 5300,
+            "green" : 3600,
+            "yellow" : 6100,
+            "blue" : 5200,
+            "red" : 4920,
+            "aim" : {
+                "polynomial" : {
+                    "hood_down" : {
+                        "a" : 0,
+                        "b" : -0.0026,
+                        "c" : 1.5411,
+                        "d" : -301.35,
+                        "e" : 24823
+                    },
+                    "hood_up" : {
+                        "a" : 0,
+                        "b" : -0.0814,
+                        "c" : 23.612,
+                        "d" : -2258.2,
+                        "e" : 74645
+                    }
+                },
+                "pwl" : {
+                    "hood_up" : {
+                        "1" : {
+                            "x" : 71,
+                            "y" : 3300
+                        },
+                        "2" : {
+                            "x" : 87,
+                            "y" : 3350
+                        },
+                        "3" : {
+                            "x" : 101,
+                            "y" : 3500
+                        },
+                        "4" : {
+                            "x" : 119,
+                            "y" : 3550
+                        }
+                    },
+                    "hood_down" : {
+                        "1" : {
+                            "x" : 110,
+                            "y" : 5600
+                        },
+                        "2" : {
+                            "x" : 120,
+                            "y" : 56000
+                        },
+                        "3" : {
+                            "x" : 140,
+                            "y" : 5500
+                        },
+                        "4" : {
+                            "x" : 161,
+                            "y" : 5300
+                        },
+                        "5" : {
+                            "x" : 174,
+                            "y" : 35300
+                        },
+                        "6" : {
+                            "x" : 189,
+                            "y" : 5600
+                        },
+                        "7" : {
+                            "x" : 220,
+                            "y" : 5700
+                        },
+                        "8" : {
+                            "x" : 273,
+                            "y" : 6000
+                        }
+                    }
+                },
+                "max_hood_up" : 120,
+                "min_hood_down" : 110
+            }
+        }
+    },
+    "testmode" : {
+        "enabled" : true,
+        "which" : 0,
+        "distance" : 1800,
+        "power" : 0.5,
+        "duration" : 5,
+        "name" : "test_straight"
+    }
+}

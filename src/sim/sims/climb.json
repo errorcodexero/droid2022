@@ -1,0 +1,63 @@
+{
+    "stimulus" :
+    [
+        {
+            "time" : 0.0,
+            "events" :
+            [
+                {
+                    "model" : "fms",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "start" : 1.0,
+                        "autonomous" : 0.0,
+                        "between" : 0.0,
+                        "teleop" : 30.0,
+                        "fms" : false,
+                        "station" : "blue1"
+                    }
+                },
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" :
+                    {
+                        "comment" : "%%%% Climb lock OI button locked",
+                        "button10" : true
+                    }
+                }
+            ]
+        },
+        {
+            "time" : 8.0,
+            "events" :
+            [
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" :
+                    {
+                        "comment" : "%%%% Climb lock OI button unlocked",
+                        "button10" : false
+                    }
+                }
+            ]
+        },
+        {
+            "time" : 12.0,
+            "events" :
+            [
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" :
+                    {
+                        "comment" : "%%%% Push deploy button",
+                        "button5" : true
+                    }
+                }
+            ]
+        }           
+    ]
+}

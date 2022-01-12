@@ -1,0 +1,44 @@
+{
+    "stimulus" :
+    [
+        {
+            "time" : 0.0,
+            "events" :
+            [
+                {
+                    "model" : "fms",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "automode must be set to the correct testmode in droid param file",
+                        "start" : 1.0,
+                        "autonomous" : 1000.0,
+                        "between" : 0.0,
+                        "teleop" : 0.0,
+                        "fms" : false
+                    }
+                },
+                {
+                    "model" : "turret",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "start the turret facing target",
+                        "angle" : 0.0
+                    }
+                },
+                {
+                    "model" : "tankdrive",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "position the robot on the left of the field",
+                        "xpos" : 32.0,
+                        "ypos" : 150.0,
+                        "angle" : 0.0
+                    }
+                }           
+            ]
+        }
+    ]
+}

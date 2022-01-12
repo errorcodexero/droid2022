@@ -1,0 +1,13 @@
+{
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/LiveWindow/Ungrouped/DigitalInput[10]": "Digital Input",
+      "/LiveWindow/Ungrouped/DigitalInput[11]": "Digital Input",
+      "/LiveWindow/Ungrouped/DigitalInput[12]": "Digital Input",
+      "/LiveWindow/Ungrouped/DigitalInput[13]": "Digital Input",
+      "/LiveWindow/Ungrouped/navX-Sensor[4]": "Gyro",
+      "/SmartDashboard/SendableChooser[0]": "String Chooser"
+    }
+  }
+}

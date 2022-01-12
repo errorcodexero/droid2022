@@ -1,0 +1,469 @@
+{
+    "stimulus" :
+    [
+        {
+            "time" : 0.0,
+            "events" :
+            [
+                {
+                    "model" : "fms",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "start" : 1.0,
+                        "autonomous" : 0.0,
+                        "between" : 0.0,
+                        "teleop" : 34.0
+                    }
+                },
+                {
+                    "model" : "turret",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "start the turret facing the outside wall",
+                        "angle" : -90.0
+                    }
+                },                 
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" :
+                    {
+                        "comment" : "%%%% Collect/shoot mode switch set to collect",                             
+                        "button11" : false
+                    }
+                }
+            ]
+        },
+        {
+            "time" : 6.0,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "readyToCollect",
+                    "value" : true
+                },
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "readyToFire",
+                    "value" : false
+                }                
+            ]
+        },        
+        {
+            "time" : 6.5,
+            "events" :
+            [
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Press the collect button",                               
+                        "button14" : true
+                    }
+                }
+            ]
+        },          
+        {
+            "time" : 7.0,
+            "events" :
+            [
+                {
+                    "model" : "conveyor",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Ball present at intake",    
+                        "ball" : true
+                    }
+                }               
+            ]
+        },
+        {
+            "time" : 7.95,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 1
+                }               
+            ]
+        },
+        {
+            "time" : 8.0,
+            "events" :
+            [
+                {
+                    "model" : "conveyor",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Ball present at intake",    
+                        "ball" : true
+                    }
+                }               
+            ]
+        },
+        {
+            "time" : 8.95,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 2
+                }               
+            ]
+        },        
+        {
+            "time" : 9.0,
+            "events" :
+            [
+                {
+                    "model" : "conveyor",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Ball present at intake",    
+                        "ball" : true
+                    }
+                }               
+            ]
+        },
+        {
+            "time" : 9.95,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 3
+                }               
+            ]
+        },           
+        {
+            "time" : 10.0,
+            "events" :
+            [
+                {
+                    "model" : "conveyor",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Ball present at intake",    
+                        "ball" : true
+                    }
+                }               
+            ]
+        },
+        {
+            "time" : 10.95,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 4
+                }               
+            ]
+        },          
+        {
+            "time" : 11.0,
+            "events" :
+            [
+                {
+                    "model" : "conveyor",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Ball present at intake",    
+                        "ball" : true
+                    }
+                }  
+            ]     
+        },
+        {
+            "time" : 11.95,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 5
+                }               
+            ]
+        },         
+        {
+            "time" : 12.0,
+            "events" :
+            [
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Release the collect button",                             
+                        "button14" : false
+                    }
+                }
+            ]
+        },          
+        {
+            "time" : 12.0,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "readyToCollect",
+                    "value" : false
+                }
+            ]
+        },
+        {
+            "time" : 13.0,
+            "events" :
+            [
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Press the eject button",    
+                        "button8" : true
+                    }
+                }
+            ]
+        },
+        {
+            "time" : 16.0,
+            "events" :
+            [
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Release the eject button",    
+                        "button8" : false
+                    }
+                }
+            ]
+        },
+        {
+            "time" : 16.4,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 0
+                }               
+            ]
+        },
+        {
+            "time" : 16.5,
+            "events" :
+            [
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Press the collect button",                               
+                        "button14" : true
+                    }
+                }
+            ]
+        },          
+        {
+            "time" : 17.0,
+            "events" :
+            [
+                {
+                    "model" : "conveyor",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Ball present at intake",    
+                        "ball" : true
+                    }
+                }               
+            ]
+        },
+        {
+            "time" : 17.95,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 1
+                }               
+            ]
+        },
+        {
+            "time" : 18.0,
+            "events" :
+            [
+                {
+                    "model" : "conveyor",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Ball present at intake",    
+                        "ball" : true
+                    }
+                }               
+            ]
+        },
+        {
+            "time" : 18.95,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 2
+                }               
+            ]
+        },        
+        {
+            "time" : 19.0,
+            "events" :
+            [
+                {
+                    "model" : "conveyor",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Ball present at intake",    
+                        "ball" : true
+                    }
+                }               
+            ]
+        },
+        {
+            "time" : 19.95,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 3
+                }               
+            ]
+        },           
+        {
+            "time" : 20.0,
+            "events" :
+            [
+                {
+                    "model" : "conveyor",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Ball present at intake",    
+                        "ball" : true
+                    }
+                }               
+            ]
+        },
+        {
+            "time" : 20.95,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 4
+                }               
+            ]
+        },          
+        {
+            "time" : 21.0,
+            "events" :
+            [
+                {
+                    "model" : "conveyor",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Ball present at intake",    
+                        "ball" : true
+                    }
+                }  
+            ]     
+        },
+        {
+            "time" : 21.95,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 5
+                }               
+            ]
+        },         
+        {
+            "time" : 22.0,
+            "events" :
+            [
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Release the collect button",                             
+                        "button14" : false
+                    }
+                }
+            ]
+        },
+        {
+            "time" : 24.0,
+            "events" :
+            [
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Press the eject button",    
+                        "button8" : true
+                    }
+                }
+            ]
+        },
+        {
+            "time" : 27.0,
+            "events" :
+            [
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "Release the eject button",    
+                        "button8" : false
+                    }
+                }
+            ]
+        },
+        {
+            "time" : 27.5,
+            "asserts" :
+            [
+                {
+                    "subsystem" : "conveyor",
+                    "property" : "ballcount",
+                    "value" : 0
+                }               
+            ]
+        }
+    ]
+}

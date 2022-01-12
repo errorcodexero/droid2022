@@ -1,0 +1,51 @@
+{
+    "stimulus" :
+    [
+        {
+            "time" : 0.0,
+            "events" :
+            [
+                {
+                    "model" : "fms",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "start" : 1000.0,
+                        "autonomous" : 15.0,
+                        "between" : 2.0,
+                        "teleop" : 0.0,
+                        "fms": true
+                    }
+                },
+                {
+                    "model" : "droidoi",
+                    "instance" : "1",
+                    "values" :
+                    {
+                        "comment" : "set to automode to number 0, middle",
+                        "axis0" : -0.95
+                    }
+                },
+                {
+                    "model" : "turret",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "comment" : "start the turret facing the outside wall",
+                        "angle" : 0.0
+                    }
+                },                
+                {
+                    "model" : "tankdrive",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "xpos" : 494.0,
+                        "ypos" : 92.0,
+                        "angle" : 180.0
+                    }
+                }
+            ]
+        }
+    ]
+}
