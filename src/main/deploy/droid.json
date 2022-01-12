@@ -432,7 +432,7 @@
         },
         "droidoi" : {
             "xero1425_gamepad" : {
-                "index" : 0,
+                "index_not_used" : 0,
                 "power" : {
                     "max" : 1.0,
                     "default" : 0.6,
@@ -448,6 +448,10 @@
 
                 "zerolevel" : 0.1,
                 "nudge_time" : 0.1
+            },
+            "standard_gamepad" : {
+                "index" : 0,
+                "deadband" : 0.05
             },
             "oi" : {
                 "index" : 2,

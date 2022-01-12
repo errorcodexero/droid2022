@@ -15,7 +15,7 @@ public class DroidOISubsystem extends OISubsystem {
     private final static String OIHIDIndexName = "oi:index";
 
     public DroidOISubsystem(Subsystem parent, TankDriveSubsystem db, boolean climber) {
-        super(parent, SubsystemName, GamePadType.Xero1425Historic, db) ;
+        super(parent, SubsystemName, GamePadType.Standard, db) ;
 
         int index ;
         MessageLogger logger = getRobot().getMessageLogger() ;
