@@ -1,0 +1,34 @@
+{
+    "stimulus" :
+    [
+        {
+            "time" : 0.0,
+            "events" :
+            [
+                {
+                    "model" : "fms",
+                    "instance" : "1",
+                    "values" : 
+                    {
+                        "start" : 1.0,
+                        "autonomous" : 0.0,
+                        "between" : 0.0,
+                        "teleop" : 10.0,
+                        "fms" : true,
+                        "station" : "blue1"
+                    }
+                },
+                {
+                    "model" : "drivergamepad",
+                    "instance" : "1",
+                    "values" :
+                    {
+                        "comment" : "%%%% Collect mode switch to collect",
+                        "axis1" : -1.0,
+                        "axis4" : 0.0
+                    }
+                }
+            ]
+        }
+    ]
+}
