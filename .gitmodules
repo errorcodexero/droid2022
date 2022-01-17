@@ -1,6 +1,7 @@
 [submodule "src/main/java/xero1425"]
 	path = src/main/java/xero1425
 	url = https://github.com/errorcodexero/xero1425.git
-[submodule "src/test/java/org/xero1425"]
-	path = src/test/java/org/xero1425
-	url = https://github.com/errorcodexero/xero1425test.git
+[submodule "src/main/java/org/xero1425"]
+	path = src/main/java/org/xero1425
+	url = https://github.com/errorcodexero/xero1425.git
+	branch = main
